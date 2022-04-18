@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<script>
+  let count = 0;
+  function computerPlay() { 
+  const randomNumber = (Math.floor(Math.random() * (3) + 1));
+  return (randomNumber == 3) ? 'ROCK' : (randomNumber == 2) ? 'PAPER' : 'SCISSORS'
+  }
+  
+  function playRound(playerSelection,computerSelection) {
+    switch(playerSelection + computerSelection) {
+  case 'ROCKROCK':
+    return `It's a tie. You both chose rock.`;
+  case 'ROCKPAPER':
+    return `You lose. Paper covers rock.`;
+  case 'ROCKSCISSORS':
+   return `You win! Rock crushes scissors.`;
+  case 'SCISSORSPAPER':
+   return `You win! Scissors slice paper.`;
+  case 'SCISSORSROCK':
+    return `You lose. Rock crushes scissors.`;
+  case 'SCISSORSSCISSORS':
+    return `It's a tie. You both chose scissors.`;
+  case 'PAPERROCK':
+    return `You win! Paper covers rock.`;
+  case 'PAPERSCISSORS':
+    return `You lose. Scissors slice paper.`;
+  case 'PAPERPAPER': 
+    return    `It's a tie. You both chose paper.`;
+  case (playerSelection + computerSelection):
+   count -= 1 ; 
+   alert ('Something went wrong... be sure you entered a valid response.')
+   break;
+      }
+    }
+
+  function playGame() {
+    for (let i = 0; i<5;) {
+    count ++;
+      let playerSelection = prompt('Choose your fate...', 'ROCK, PAPER, or SCISSORS').toUpperCase();
+    let computerSelection = computerPlay(); 
+    let winnerNotif = playRound(playerSelection, computerSelection);
+    if (winnerNotif) {
+    alert(`ROUND ${count} RESULTS: ${winnerNotif}`);
+    i++
+    }
+  }
+  }
+  
+
+  playGame();
+  
+</script>
+</html>
